@@ -8,7 +8,7 @@ issues_url 'https://github.com/WIU/zammad/issues' if respond_to?(:issues_url)
 source_url 'https://github.com/WIU/zammad' if respond_to?(:source_url)
 chef_version '>= 12.5'
 
-version '0.1.1'
+version '0.1.2'
 
 supports 'centos', '>= 7.3'
 
