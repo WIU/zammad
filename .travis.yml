@@ -1,22 +1,47 @@
-language: ruby
+sudo: required
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - chef-current-trusty
+    packages:
+      - chefdk
+
+# Don't `bundle install` which takes about 1.5 mins
+install: echo "skip bundle install"
 
 branches:
   only:
     - master
 
-sudo: false
+services: docker
 
-rvm:
-  - 2.3.1
+env:
+  global:
+  - KITCHEN_YAML=.kitchen.yml
+  - KITCHEN_LOCAL_YAML=.kitchen.dokken.yml
+  matrix:
+  - INSTANCE=client-install-centos-6
+  - INSTANCE=client-install-centos-7
+  - INSTANCE=client-install-debian-7
+  - INSTANCE=client-install-debian-8
+  - INSTANCE=client-install-debian-9
+  - INSTANCE=client-install-fedora-26
+  - INSTANCE=client-install-ubuntu-1404
+  - INSTANCE=client-install-ubuntu-1604
 
-install: bundle install --jobs=3 --retry=3 --without kitchen_vagrant kitchen_rackspace kitchen_ec2 development
-cache:
-  directories:
-  - vendor/bundle
+before_script:
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - eval "$(chef shell-init bash)"
+  - chef --version
+  - cookstyle --version
+  - foodcritic --version
 
-script:
-  - bundle exec rake style
-  - bundle exec rake spec
+script: kitchen verify ${INSTANCE}
 
-notifications:
-  disable: true
+matrix:
+  include:
+    - script:
+      - chef exec delivery local all
+      env: UNIT_AND_LINT=1

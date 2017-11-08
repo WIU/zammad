@@ -8,6 +8,7 @@ group :development do
   gem 'debride'
   gem 'fasterer'
   gem 'kitchen-docker'
+  gem 'rake'
   gem 'rb-readline'
   gem 'test-kitchen'
 end
