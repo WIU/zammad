@@ -1,10 +1,10 @@
 Zammad Cookbook
 ================
 
-# [![Build Status](https://travis-ci.org/sous-chefs/rundeck.svg?branch=master)](https://travis-ci.org/sous-chefs/rundeck)
+[![Build Status](https://travis-ci.org/WIU/zammad.svg?branch=master)](https://travis-ci.org/WIU/zammad)
 # [![Cookbook Version](https://img.shields.io/cookbook/v/rundeck.svg)](https://supermarket.chef.io/cookbooks/rundeck)
 
-Installs and configures a Zammad server.
+Installs and configures a [Zammad](https://zammad.org/) server.  Zammad is a web-based, open source user support/ticketing solution.
 
 
 Requirements
