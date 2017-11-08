@@ -2,7 +2,7 @@ Zammad Cookbook
 ================
 
 [![Build Status](https://travis-ci.org/WIU/zammad.svg?branch=master)](https://travis-ci.org/WIU/zammad)
-# [![Cookbook Version](https://img.shields.io/cookbook/v/rundeck.svg)](https://supermarket.chef.io/cookbooks/rundeck)
+[![Cookbook Version](https://img.shields.io/cookbook/v/zammad.svg)](https://supermarket.chef.io/cookbooks/zammad)
 
 Installs and configures a [Zammad](https://zammad.org/) server.  Zammad is a web-based, open source user support/ticketing solution.
 
