@@ -22,14 +22,14 @@ env:
   - KITCHEN_YAML=.kitchen.yml
   - KITCHEN_LOCAL_YAML=.kitchen.dokken.yml
   matrix:
-  - INSTANCE=client-install-centos-6
+#  - INSTANCE=client-install-centos-6
   - INSTANCE=client-install-centos-7
-  - INSTANCE=client-install-debian-7
-  - INSTANCE=client-install-debian-8
-  - INSTANCE=client-install-debian-9
-  - INSTANCE=client-install-fedora-26
-  - INSTANCE=client-install-ubuntu-1404
-  - INSTANCE=client-install-ubuntu-1604
+#  - INSTANCE=client-install-debian-7
+#  - INSTANCE=client-install-debian-8
+#  - INSTANCE=client-install-debian-9
+#  - INSTANCE=client-install-fedora-26
+#  - INSTANCE=client-install-ubuntu-1404
+#  - INSTANCE=client-install-ubuntu-1604
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
