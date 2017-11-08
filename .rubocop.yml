@@ -1,0 +1,6 @@
+AllCops:
+  Exclude:
+    - 'Rakefile'
+    - vendor/**/*
+    - test/**/*
+    - bin/**/*
