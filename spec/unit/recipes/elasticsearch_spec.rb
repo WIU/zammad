@@ -40,7 +40,7 @@ describe 'zammad::elasticsearch' do
 
   it 'runs set_es_url' do
     expect(chef_run).to run_execute('set_es_url')
-    resource = chef_run.execute('set_es_url')    
+    resource = chef_run.execute('set_es_url')
     expect(resource).to notify('file[set_es_url]').to(:create).delayed
   end
 
@@ -50,12 +50,11 @@ describe 'zammad::elasticsearch' do
 
   it 'runs rebuild_index' do
     expect(chef_run).to run_execute('rebuild_index')
-    resource = chef_run.execute('rebuild_index')       
-    expect(resource).to notify('file[rebuild_index]').to(:create).delayed    
+    resource = chef_run.execute('rebuild_index')
+    expect(resource).to notify('file[rebuild_index]').to(:create).delayed
   end
 
   it 'sets up rebuild_index file resource' do
     expect(chef_run.file('rebuild_index')).to do_nothing
   end
-
 end

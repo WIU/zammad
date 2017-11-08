@@ -25,7 +25,7 @@ describe 'zammad::default' do
   it 'includes java' do
     expect(chef_run).to include_recipe('java')
   end
-  
+
   it 'includes nginx' do
     expect(chef_run).to include_recipe('nginx')
   end
@@ -37,7 +37,7 @@ describe 'zammad::default' do
   it 'deploys the zammad template for nginx' do
     expect(chef_run).to create_template('/etc/nginx/conf.d/zammad.conf')
   end
-  
+
   it 'includes zammad::elasticsearch' do
     expect(chef_run).to include_recipe('zammad::elasticsearch')
   end

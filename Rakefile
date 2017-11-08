@@ -22,9 +22,9 @@ namespace :style do
   desc 'Run Chef style checks'
   FoodCritic::Rake::LintTask.new(:chef) do |t|
     # 'search_gems' doesn't work, but :search_gems does
-    t.options = { :search_gems => true, # allows us to add addl gems with more rules
-                  :fail_tags => ['correctness'],
-                  :chef_version => '13.6' }
+    t.options = { search_gems: true, # allows us to add addl gems with more rules
+                  fail_tags: ['correctness'],
+                  chef_version: '13.6' }
   end
 end
 
