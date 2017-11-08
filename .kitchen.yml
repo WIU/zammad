@@ -1,0 +1,35 @@
+---
+################################################################################
+# Any local customizations should be placed inside the .kitchen.local.yml, which
+# will not be checked in or overwritten. You may also use ~/.kitchen/config.yml
+# or environment variables like VAGRANT_DEFAULT_PROVIDER. Anything in those will
+# take precedence over anything set in `.kitchen.yml`.
+################################################################################
+driver:
+  name: vagrant # provide a default test-kitchen driver, vagrant
+  require_chef_omnibus: true
+
+provisioner:
+  name: chef_zero
+  nodes_path: 'test/fixtures/nodes'
+  data_bags_path: 'test/fixtures/data_bags'
+  environments_path: 'test/fixtures/environments'
+  client_rb:
+    environment: _default
+  attributes:
+    java:
+      jdk_version: '8'
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.4
+
+suites:
+  - name: default
+    run_list:
+      - recipe[zammad::default]
+    verifier:
+      inspec_tests:
+        - test/recipes
