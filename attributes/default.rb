@@ -7,3 +7,5 @@ default['zammad']['local_es'] = true
 default['zammad']['use_proxy'] = false
 
 default['zammad']['nginx_server_name'] = 'localhost'
+
+default['zammad']['version'] = '~> 2.1.0'
