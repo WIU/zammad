@@ -31,7 +31,7 @@ describe 'zammad::default' do
   end
 
   it 'includes zammad' do
-    expect(chef_run).to install_package('zammad')
+    expect(chef_run).to upgrade_yum_package('zammad')
   end
 
   it 'deploys the zammad template for nginx' do
@@ -44,5 +44,9 @@ describe 'zammad::default' do
 
   it 'includes postfix' do
     expect(chef_run).to include_recipe('postfix')
+  end
+
+  it 'deletes the zammad repo file....for now' do
+    expect(chef_run).to delete_file('/etc/yum.repos.d/zammad.repo')
   end
 end
